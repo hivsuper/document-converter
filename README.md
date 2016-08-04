@@ -2,7 +2,7 @@
 Convert txt/word/ppt/excel to pdf base on microsoft office and convert pdf to swf base on SWFTools.
 
 
-PS: This project is totally inspired http://www.cnblogs.com/luckyxiaoxuan/archive/2012/06/15/2550303.html. Thanks so much to the author.
+PS: This project is totally inspired by http://www.cnblogs.com/luckyxiaoxuan/archive/2012/06/15/2550303.html. Thanks so much to the author.
 
 There are couple things that should be known before you run the test method.
 
