@@ -8,6 +8,6 @@ There are couple things that should be known before you run the test method.
 
 1)Microsoft office should be installed on your computer.
 
-2)SWFTools should be install on your computer. You can modify the path to adapter to your computer in Test class.
+2)SWFTools should be installed on your computer. You can modify the path to adapt to your environment in Test class.
 
 3)jacob-1.18-x86.dll or jacob-1.18-x64.dll should be added to system path. eg. put it into C:\Windows\System32
