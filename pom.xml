@@ -57,6 +57,11 @@
       <artifactId>jacob</artifactId>
       <version>1.18</version>
     </dependency>
+    <dependency>
+      <groupId>com.github.livesense</groupId>
+      <artifactId>jodconverter-core</artifactId>
+      <version>1.0.5</version>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
@@ -67,6 +72,40 @@
         <configuration>
           <source>1.7</source>
           <target>1.7</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.6</version>
+        <executions>
+          <execution>
+            <id>copy-dependencies</id>
+            <phase>package</phase>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.build.directory}/lib</outputDirectory>
+              <overWriteReleases>false</overWriteReleases>
+              <overWriteSnapshots>false</overWriteSnapshots>
+              <overWriteIfNewer>true</overWriteIfNewer>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.6</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <classpathPrefix>lib/</classpathPrefix>
+              <mainClass>org.lxp.main.Test</mainClass>
+            </manifest>
+          </archive>
         </configuration>
       </plugin>
     </plugins>
