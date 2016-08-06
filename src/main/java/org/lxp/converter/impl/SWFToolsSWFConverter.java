@@ -31,9 +31,10 @@ public class SWFToolsSWFConverter extends SWFConverter {
       throw new Exception(String.format("There is already a %s", inputFile));
     }
     String command = PDF2SWF_PATH + " \"" + inputFile + "\" -o " + outputFile + " -T 9 -f";
-    LOG.info("converting of {} start", inputFile);
+    LOG.debug("{}", command);
+    LOG.info("converting {} to {}", inputFile, outputFile);
     Runtime.getRuntime().exec(command);
-    LOG.info("converting of {} is finished", inputFile);
+    LOG.info("{} is generated successfully", outputFile);
     return outputFile;
   }
 }

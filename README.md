@@ -17,3 +17,5 @@ Also if you run the test method via JodPDFconverter(Across windows/linux), these
 1)LibreOffice should be installed on your computer.
 
 2)Same as last chapter
+
+3)If the converting is invoked on linux OS, X Window is needed. It was always failing unless I do `sudo apt-get install ubuntu-desktop`.
