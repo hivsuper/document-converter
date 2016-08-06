@@ -1,7 +1,11 @@
 package org.lxp.converter.impl;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 import org.lxp.converter.SWFConverter;
 import org.lxp.util.FileUtils;
@@ -30,10 +34,32 @@ public class SWFToolsSWFConverter extends SWFConverter {
     if (outFile.exists()) {
       throw new Exception(String.format("There is already a %s", inputFile));
     }
-    String command = PDF2SWF_PATH + " \"" + inputFile + "\" -o " + outputFile + " -T 9 -f";
+    String command = String.format("%s %s -o %s -T 9 -f", PDF2SWF_PATH, inputFile, outputFile);
     LOG.debug("{}", command);
     LOG.info("converting {} to {}", inputFile, outputFile);
-    Runtime.getRuntime().exec(command);
+    Process process = null;
+    try {
+      process = Runtime.getRuntime().exec(command);
+      process.waitFor();
+      InputStream in = process.getInputStream();
+      BufferedReader read = new BufferedReader(new InputStreamReader(in));
+      String line = null;
+      while ((line = read.readLine()) != null) {
+        LOG.info(line);
+      }
+    } catch (IOException e) {
+      LOG.error(e.getMessage(), e);
+    } finally {
+      if (process != null) {
+        InputStream in = process.getErrorStream();
+        BufferedReader read = new BufferedReader(new InputStreamReader(in));
+        String line = null;
+        while ((line = read.readLine()) != null) {
+          LOG.info(line);
+        }
+        process.destroy();
+      }
+    }
     LOG.info("{} is generated successfully", outputFile);
     return outputFile;
   }
