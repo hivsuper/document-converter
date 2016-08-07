@@ -32,7 +32,7 @@ public class SWFToolsSWFConverter extends SWFConverter {
     }
     File outFile = new File(outputFile);
     if (outFile.exists()) {
-      throw new Exception(String.format("There is already a %s", inputFile));
+      outFile.delete();
     }
     String command = String.format("%s %s -o %s -T 9 -f", PDF2SWF_PATH, inputFile, outputFile);
     LOG.debug("{}", command);

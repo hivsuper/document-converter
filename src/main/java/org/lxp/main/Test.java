@@ -1,5 +1,7 @@
 package org.lxp.main;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 import org.lxp.converter.PDFConverter;
@@ -30,9 +32,20 @@ public class Test {
       throws Exception {
     SWFConverter swfConverter = new SWFToolsSWFConverter(pdf2swfPath);
     Doc2SwfConverter doc2SwfConverter = new Doc2SwfConverter(pdfConverter, swfConverter);
-    doc2SwfConverter.convert(String.format("%s/%s", sourceFolder, "docTest.docx"));
-    doc2SwfConverter.convert(String.format("%s/%s", sourceFolder, "pptTest.ppt"));
-    doc2SwfConverter.convert(String.format("%s/%s", sourceFolder, "pptTest1.pptx"));
+
+    final String docTextDoc = String.format("%s/%s", sourceFolder, "docTest2003.doc");
+
+    doc2SwfConverter.convert(docTextDoc);
+
+    final String docTextDocx = String.format("%s/%s", sourceFolder, "docTest.docx");
+    final String docTextPPT = String.format("%s/%s", sourceFolder, "pptTest2003.ppt");
+    final String docTextPPTX = String.format("%s/%s", sourceFolder, "pptTest.pptx");
+    List<String> list = Arrays.asList(new String[] { docTextDocx, docTextPPT, docTextPPTX });
+    doc2SwfConverter.convert(list);
+
+    final String docTextXlsxInput = String.format("%s/%s", sourceFolder, "xlsTest.xlsx");
+    final String docTextXlsxOutput = String.format("%s/%s", sourceFolder, "xlsTest.swf");
+    doc2SwfConverter.convert(docTextXlsxInput, docTextXlsxOutput);
   }
 
   private static boolean isWindows() {

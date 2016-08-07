@@ -2,8 +2,12 @@ package org.lxp.converter.impl;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.lxp.converter.PDFConverter;
+import org.lxp.converter.vo.FileVo;
+import org.lxp.converter.vo.ReturnVo;
 import org.lxp.util.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,6 +44,27 @@ public class JacobPDFConverter extends PDFConverter {
       }
     }
     return outputFile;
+  }
+
+  @Override
+  public ReturnVo convert(List<String> inputFiles) {
+    ReturnVo returnVo;
+    if (inputFiles.isEmpty()) {
+      returnVo = ReturnVo.empty();
+    } else {
+      List<FileVo> success = new ArrayList<>();
+      List<String> fail = new ArrayList<>();
+      for (String inputFile : inputFiles) {
+        try {
+          success.add(new FileVo(inputFile, convert(inputFile)));
+        } catch (Exception e) {
+          LOG.error(e.getMessage(), e);
+          fail.add(inputFile);
+        }
+      }
+      returnVo = new ReturnVo(success, fail);
+    }
+    return returnVo;
   }
 
   private static void word2PDF(String inputFile, String pdfFile) {
