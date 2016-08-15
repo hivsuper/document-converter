@@ -23,7 +23,7 @@ public class JacobPDFConverter extends PDFConverter {
 
   @Override
   public String convert(String inputFile, String outputFile) throws Exception {
-    String suffix = FileUtils.getFileSufix(inputFile).toLowerCase();
+    String suffix = FileUtils.getFileSuffix(inputFile).toLowerCase();
     File file = new File(inputFile);
     if (!file.exists()) {
       LOG.error("{} is not found", inputFile);

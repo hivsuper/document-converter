@@ -57,7 +57,7 @@ public class JodPDFconverter extends PDFConverter {
       for (FileVo fileVo : fileVos) {
         String inputFile = fileVo.getInput();
         String outputFile = fileVo.getOutput();
-        if (inputFile.endsWith(FileUtils.TXT_SUFFIX)) {
+        if (FileUtils.getFileSuffix(inputFile).equalsIgnoreCase(FileUtils.TXT_SUFFIX)) {
           String odtFile = String.format("%s%s%s", FileUtils.getFilePrefix(inputFile), FileUtils.SEPARATOR, ODT_SUFFIX);
           if (new File(odtFile).exists()) {
             inputFile = odtFile;

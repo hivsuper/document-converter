@@ -22,7 +22,7 @@ public class SWFToolsSWFConverter extends SWFConverter {
 
   @Override
   public String convert(String inputFile, String outputFile) throws Exception {
-    String suffix = FileUtils.getFileSufix(inputFile).toLowerCase();
+    String suffix = FileUtils.getFileSuffix(inputFile).toLowerCase();
     if (!suffix.equals(FileUtils.PDF_SUFFIX)) {
       throw new Exception(String.format("%s is not pdf", inputFile));
     }

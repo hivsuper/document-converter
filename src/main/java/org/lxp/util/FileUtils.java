@@ -26,7 +26,7 @@ public class FileUtils {
     return fileName.substring(0, fileName.lastIndexOf(SEPARATOR));
   }
 
-  public static String getFileSufix(String fileName) {
+  public static String getFileSuffix(String fileName) {
     return fileName.substring(fileName.lastIndexOf(SEPARATOR) + 1);
   }
 
