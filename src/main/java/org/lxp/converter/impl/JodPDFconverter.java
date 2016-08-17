@@ -84,7 +84,7 @@ public class JodPDFconverter extends PDFConverter {
     return returnVo;
   }
 
-  public static void startService() {
+  private void startService() {
     DefaultOfficeManagerConfiguration configuration = new DefaultOfficeManagerConfiguration();
     try {
       LOG.info("start service....");
@@ -101,7 +101,7 @@ public class JodPDFconverter extends PDFConverter {
     }
   }
 
-  public static void stopService() {
+  private void stopService() {
     LOG.info("close office converting service....");
     if (officeManager != null) {
       officeManager.stop();
