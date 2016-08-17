@@ -47,6 +47,7 @@ public class SWFToolsSWFConverter extends SWFConverter {
       while ((line = read.readLine()) != null) {
         LOG.info(line);
       }
+      LOG.info("{} is generated successfully", outputFile);
     } catch (IOException e) {
       LOG.error(e.getMessage(), e);
     } finally {
@@ -60,7 +61,6 @@ public class SWFToolsSWFConverter extends SWFConverter {
         process.destroy();
       }
     }
-    LOG.info("{} is generated successfully", outputFile);
     return outputFile;
   }
 }
