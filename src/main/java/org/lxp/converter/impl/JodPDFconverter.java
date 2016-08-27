@@ -57,7 +57,7 @@ public class JodPDFconverter extends PDFConverter {
       for (FileVo fileVo : fileVos) {
         String inputFile = fileVo.getInput();
         String outputFile = fileVo.getOutput();
-        if (inputFile.endsWith(FileUtils.TXT_SUFFIX)) {
+        if (FileUtils.getFileSuffix(inputFile).equalsIgnoreCase(FileUtils.TXT_SUFFIX)) {
           String odtFile = String.format("%s%s%s", FileUtils.getFilePrefix(inputFile), FileUtils.SEPARATOR, ODT_SUFFIX);
           if (new File(odtFile).exists()) {
             inputFile = odtFile;
@@ -84,7 +84,7 @@ public class JodPDFconverter extends PDFConverter {
     return returnVo;
   }
 
-  public static void startService() {
+  private void startService() {
     DefaultOfficeManagerConfiguration configuration = new DefaultOfficeManagerConfiguration();
     try {
       LOG.info("start service....");
@@ -101,7 +101,7 @@ public class JodPDFconverter extends PDFConverter {
     }
   }
 
-  public static void stopService() {
+  private void stopService() {
     LOG.info("close office converting service....");
     if (officeManager != null) {
       officeManager.stop();

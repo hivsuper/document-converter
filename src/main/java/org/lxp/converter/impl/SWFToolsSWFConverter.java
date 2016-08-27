@@ -22,7 +22,7 @@ public class SWFToolsSWFConverter extends SWFConverter {
 
   @Override
   public String convert(String inputFile, String outputFile) throws Exception {
-    String suffix = FileUtils.getFileSufix(inputFile).toLowerCase();
+    String suffix = FileUtils.getFileSuffix(inputFile).toLowerCase();
     if (!suffix.equals(FileUtils.PDF_SUFFIX)) {
       throw new Exception(String.format("%s is not pdf", inputFile));
     }
@@ -47,6 +47,7 @@ public class SWFToolsSWFConverter extends SWFConverter {
       while ((line = read.readLine()) != null) {
         LOG.info(line);
       }
+      LOG.info("{} is generated successfully", outputFile);
     } catch (IOException e) {
       LOG.error(e.getMessage(), e);
     } finally {
@@ -60,7 +61,6 @@ public class SWFToolsSWFConverter extends SWFConverter {
         process.destroy();
       }
     }
-    LOG.info("{} is generated successfully", outputFile);
     return outputFile;
   }
 }
