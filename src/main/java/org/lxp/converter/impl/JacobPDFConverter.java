@@ -30,9 +30,13 @@ public class JacobPDFConverter extends PDFConverter {
       throw new FileNotFoundException(inputFile);
     }
     if (suffix.equals(FileUtils.PDF_SUFFIX)) {
-      LOG.debug("{} is PDF. not need to convert", inputFile);
+      LOG.debug("{} is PDF. no need to convert", inputFile);
     } else {
-      if (suffix.equals(FileUtils.TXT_SUFFIX) || suffix.equals(FileUtils.DOCX_SUFFIX)
+      File output = new File(outputFile);
+      if (output.exists()) {
+        output.delete();
+      }
+      if (suffix.equals(FileUtils.DOC_SUFFIX) || suffix.equals(FileUtils.DOCX_SUFFIX)
           || suffix.equals(FileUtils.TXT_SUFFIX)) {
         word2PDF(inputFile, outputFile);
       } else if (suffix.equals(FileUtils.PPT_SUFFIX) || suffix.equals(FileUtils.PPTX_SUFFIX)) {
