@@ -71,7 +71,7 @@ public class JacobPDFConverter extends PDFConverter {
     return returnVo;
   }
 
-  private static void word2PDF(String inputFile, String pdfFile) {
+  private void word2PDF(String inputFile, String pdfFile) {
     // 打开word应用程序
     ActiveXComponent app = new ActiveXComponent("Word.Application");
     // 设置word不可见
@@ -88,7 +88,7 @@ public class JacobPDFConverter extends PDFConverter {
     app.invoke("Quit", 0);
   }
 
-  private static void excel2PDF(String inputFile, String pdfFile) {
+  private void excel2PDF(String inputFile, String pdfFile) {
     ActiveXComponent app = new ActiveXComponent("Excel.Application");
     app.setProperty("Visible", false);
     Dispatch excels = app.getProperty("Workbooks").toDispatch();
@@ -98,7 +98,7 @@ public class JacobPDFConverter extends PDFConverter {
     app.invoke("Quit");
   }
 
-  private static void ppt2PDF(String inputFile, String pdfFile) {
+  private void ppt2PDF(String inputFile, String pdfFile) {
     ActiveXComponent app = new ActiveXComponent("PowerPoint.Application");
     // app.setProperty("Visible", msofalse);
     Dispatch ppts = app.getProperty("Presentations").toDispatch();
