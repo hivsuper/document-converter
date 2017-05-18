@@ -1,7 +1,7 @@
 # converter
 *This project is totally inspired by http://www.cnblogs.com/luckyxiaoxuan/archive/2012/06/15/2550303.html. Thanks so much to the author.*
 + What can it do?
-1. Convert txt/word/ppt/excel to pdf base on MicroSoft Office/LibreOffice.
+1. Convert txt/word/ppt/excel to pdf base on Microsoft Office/LibreOffice.
 2. Convert pdf to swf base on SWFTools.
 
 ### JacobPDFConverter(Only for windows)
