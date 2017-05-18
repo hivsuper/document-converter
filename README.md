@@ -1,21 +1,21 @@
 # converter
-Convert txt/word/ppt/excel to pdf base on microsoft office and convert pdf to swf base on SWFTools.
+Convert txt/word/ppt/excel to pdf base on microsoft office and convert pdf to swf base on SWFTools.  
+*This project is totally inspired by http://www.cnblogs.com/luckyxiaoxuan/archive/2012/06/15/2550303.html. Thanks so much to the author.*
 
+## JacobPDFConverter(Only for windows)
+Couple things below should be known if you run the test method via JacobPDFConverter.
 
-PS: This project is totally inspired by http://www.cnblogs.com/luckyxiaoxuan/archive/2012/06/15/2550303.html. Thanks so much to the author.
+1. Microsoft office should be installed on your computer.
 
-Couple things below should be known if you run the test method via JacobPDFConverter(Only for windows).
+2. SWFTools should be installed on your computer. You can modify the path to adapt to your environment in Test class.
 
-1)Microsoft office should be installed on your computer.
+3. `jacob-1.18-x86.dll` or `jacob-1.18-x64.dll` should be added to system path(*eg.*`C:\Windows\System32`).
 
-2)SWFTools should be installed on your computer. You can modify the path to adapt to your environment in Test class.
+## JodPDFconverter(Across windows/linux)
+Also if you run the test method via JodPDFconverter, these things should be done at first:
 
-3)jacob-1.18-x86.dll or jacob-1.18-x64.dll should be added to system path. eg. put it into C:\Windows\System32
+1. LibreOffice should be installed on your computer.
 
-Also if you run the test method via JodPDFconverter(Across windows/linux), these things should be done at first:
+2. Same as last chapter
 
-1)LibreOffice should be installed on your computer.
-
-2)Same as last chapter
-
-3)If the converting is invoked on linux OS, X Window is needed. It was always failing unless I do `sudo apt-get install ubuntu-desktop`.
+3. If the converting is invoked on linux OS, X Window is needed. It was always failing unless I do `sudo apt-get install ubuntu-desktop`.
