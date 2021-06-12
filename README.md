@@ -1,4 +1,8 @@
 # converter
+
+This project is built on Java 8 and apache maven 3.3.9
+
+----------------------------------------------------
 *This project is totally inspired by http://www.cnblogs.com/luckyxiaoxuan/archive/2012/06/15/2550303.html. Thanks so much to the author.*
 ## What can it do?
 1. Convert txt/word/ppt/excel to pdf base on Microsoft Office/LibreOffice.
